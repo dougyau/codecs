@@ -142,11 +142,11 @@ set_target_properties(
          -s MODULARIZE=1 \
          -s EXPORT_NAME=OpenJPEGWASM \
          -s DISABLE_EXCEPTION_CATCHING=1 \
-         -s ASSERTIONS=0 \
+         -s ASSERTIONS=1 \
          -s NO_EXIT_RUNTIME=1 \
-         -s MALLOC=emmalloc \
+         -s MALLOC=dlmalloc \
          -s ALLOW_MEMORY_GROWTH=1 \
-	 -s INITIAL_MEMORY=20mb \
+	     -s INITIAL_MEMORY=8388608 \
          -s FILESYSTEM=0 \
          -s EXPORTED_FUNCTIONS=[] \
          -s EXPORTED_RUNTIME_METHODS=[ccall] \
