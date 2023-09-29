@@ -127,7 +127,7 @@ set_target_properties(
      SET(linkFlags "-O3")
    endif()
 
-   set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+   set(CMAKE_CXX_FLAGS_RELEASE "-Os")
 
    # add include path to openjpeg
    include_directories("../extern/openjpeg/src/lib/openjp2" "../build/extern/openjpeg/src/lib/openjp2"
@@ -144,9 +144,9 @@ set_target_properties(
          -s DISABLE_EXCEPTION_CATCHING=1 \
          -s ASSERTIONS=1 \
          -s NO_EXIT_RUNTIME=1 \
-         -s MALLOC=dlmalloc \
+         -s MALLOC=emmalloc \
          -s ALLOW_MEMORY_GROWTH=1 \
-	     -s INITIAL_MEMORY=8388608 \
+	     -s INITIAL_MEMORY=16MB \
          -s FILESYSTEM=0 \
          -s EXPORTED_FUNCTIONS=[] \
          -s EXPORTED_RUNTIME_METHODS=[ccall] \
