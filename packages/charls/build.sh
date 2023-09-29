@@ -1,6 +1,6 @@
 #!/bin/sh
 # Disable exit on non 0
-set +e
+rm -rf build/ dist/
 mkdir -p build
 mkdir -p dist
 
