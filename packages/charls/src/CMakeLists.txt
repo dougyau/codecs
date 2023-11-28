@@ -29,7 +29,7 @@ set_target_properties(
       -s WASM=0 \
       -s NO_EXIT_RUNTIME=1 \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s MALLOC=emmalloc \
+      -s MALLOC=mimalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
       -s INITIAL_MEMORY=16MB \
       -s ASSERTIONS=0 \
@@ -63,9 +63,9 @@ set_target_properties(
       -s MODULARIZE=1 \
       -s EXPORT_NAME=CharLSWASM \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s ASSERTIONS=0 \
+      -s ASSERTIONS=1 \
       -s NO_EXIT_RUNTIME=1 \
-      -s MALLOC=emmalloc \
+      -s MALLOC=mimalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
       -s INITIAL_MEMORY=16MB \
       -s FILESYSTEM=0 \
@@ -108,7 +108,7 @@ set_target_properties(
       -s WASM=0 \
       -s NO_EXIT_RUNTIME=1 \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s MALLOC=emmalloc \
+      -s MALLOC=mimalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
       -s INITIAL_MEMORY=16MB \
       -s ASSERTIONS=0 \
@@ -144,9 +144,9 @@ set_target_properties(
       -s MODULARIZE=1 \
       -s EXPORT_NAME=CharLSWASM \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s ASSERTIONS=0 \
+      -s ASSERTIONS=1 \
       -s NO_EXIT_RUNTIME=1 \
-      -s MALLOC=emmalloc \
+      -s MALLOC=mimalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
       -s INITIAL_MEMORY=16MB \
       -s FILESYSTEM=0 \

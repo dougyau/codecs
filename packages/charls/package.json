@@ -1,6 +1,6 @@
 {
   "name": "@dougyau/codec-charls",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "WASM Build of CharLS",
   "main": "dist/charlsjs.js",
   "publishConfig": {
