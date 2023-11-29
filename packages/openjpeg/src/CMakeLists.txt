@@ -8,7 +8,7 @@ target_compile_features(openjpegjs PUBLIC cxx_std_11)
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
 	SET(linkFlags "-g3")
 else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-	SET(linkFlags "-O3")
+	SET(linkFlags "-O3 -flto")
 endif()
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
@@ -30,7 +30,7 @@ set_target_properties(
       -s DISABLE_EXCEPTION_CATCHING=1 \
       -s ASSERTIONS=0 \
       -s NO_EXIT_RUNTIME=1 \
-      -s MALLOC=mimalloc \
+      -s MALLOC=dlmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
       -s INITIAL_MEMORY=20mb \
       -s FILESYSTEM=0 \
@@ -47,7 +47,7 @@ set_target_properties(
    if (CMAKE_BUILD_TYPE STREQUAL Debug)
      SET(linkFlags "-g3")
    else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-     SET(linkFlags "-O3")
+     SET(linkFlags "-O3 -flto")
    endif()
 
    set(CMAKE_CXX_FLAGS_RELEASE "-O3")
@@ -67,7 +67,7 @@ set_target_properties(
          -s DISABLE_EXCEPTION_CATCHING=1 \
          -s ASSERTIONS=0 \
          -s NO_EXIT_RUNTIME=1 \
-         -s MALLOC=mimalloc \
+         -s MALLOC=dlmalloc \
          -s ALLOW_MEMORY_GROWTH=1 \
 	 -s INITIAL_MEMORY=20mb \
          -s FILESYSTEM=0 \
@@ -85,7 +85,7 @@ target_compile_features(openjpegjs_decode PUBLIC cxx_std_11)
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
 	SET(linkFlags "-g3")
 else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-	SET(linkFlags "-O3")
+	SET(linkFlags "-O3 -flto")
 endif()
 
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
@@ -107,7 +107,7 @@ set_target_properties(
       -s DISABLE_EXCEPTION_CATCHING=1 \
       -s ASSERTIONS=0 \
       -s NO_EXIT_RUNTIME=1 \
-      -s MALLOC=mimalloc \
+      -s MALLOC=dlmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
       -s INITIAL_MEMORY=20mb  \
       -s FILESYSTEM=0 \
@@ -124,7 +124,7 @@ set_target_properties(
    if (CMAKE_BUILD_TYPE STREQUAL Debug)
      SET(linkFlags "-g3")
    else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-     SET(linkFlags "-O3")
+     SET(linkFlags "-O3 -flto")
    endif()
 
    set(CMAKE_CXX_FLAGS_RELEASE "-Os")
@@ -142,9 +142,9 @@ set_target_properties(
          -s MODULARIZE=1 \
          -s EXPORT_NAME=OpenJPEGWASM \
          -s DISABLE_EXCEPTION_CATCHING=1 \
-         -s ASSERTIONS=1 \
+         -s ASSERTIONS=0 \
          -s NO_EXIT_RUNTIME=1 \
-         -s MALLOC=mimalloc \
+         -s MALLOC=dlmalloc \
          -s ALLOW_MEMORY_GROWTH=1 \
 	     -s INITIAL_MEMORY=16MB \
          -s FILESYSTEM=0 \

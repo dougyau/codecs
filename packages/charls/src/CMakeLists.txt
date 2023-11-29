@@ -8,7 +8,7 @@ target_compile_features(charlsjs PUBLIC cxx_std_17)
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
 	SET(linkFlags "-g3")
 else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-	SET(linkFlags "-Os")
+	SET(linkFlags "-Os -flto")
 endif()
 
 set(CMAKE_CXX_FLAGS_RELEASE "-Os")
@@ -29,9 +29,9 @@ set_target_properties(
       -s WASM=0 \
       -s NO_EXIT_RUNTIME=1 \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s MALLOC=mimalloc \
+      -s MALLOC=dlmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
-      -s INITIAL_MEMORY=16MB \
+      -s INITIAL_MEMORY=20MB \
       -s ASSERTIONS=0 \
       -s FILESYSTEM=0 \
       -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
@@ -50,7 +50,7 @@ target_compile_features(charlswasm PUBLIC cxx_std_17)
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
   SET(linkFlags "-g3")
 else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-  SET(linkFlags "-O3")
+  SET(linkFlags "-O3 -flto")
 endif()
 
 set(CMAKE_CXX_FLAGS_RELEASE "-Os")
@@ -63,11 +63,11 @@ set_target_properties(
       -s MODULARIZE=1 \
       -s EXPORT_NAME=CharLSWASM \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s ASSERTIONS=1 \
+      -s ASSERTIONS=0 \
       -s NO_EXIT_RUNTIME=1 \
-      -s MALLOC=mimalloc \
+      -s MALLOC=dlmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
-      -s INITIAL_MEMORY=16MB \
+      -s INITIAL_MEMORY=20MB \
       -s FILESYSTEM=0 \
       -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
       -s EXPORTED_FUNCTIONS=[] \
@@ -87,7 +87,7 @@ target_compile_features(charlsjs_decode PUBLIC cxx_std_17)
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
 	SET(linkFlags "-g3")
 else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-	SET(linkFlags "-O3")
+	SET(linkFlags "-O3 -flto")
 endif()
 
 set(CMAKE_CXX_FLAGS_RELEASE "-Os")
@@ -108,9 +108,9 @@ set_target_properties(
       -s WASM=0 \
       -s NO_EXIT_RUNTIME=1 \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s MALLOC=mimalloc \
+      -s MALLOC=dlmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
-      -s INITIAL_MEMORY=16MB \
+      -s INITIAL_MEMORY=20MB \
       -s ASSERTIONS=0 \
       -s FILESYSTEM=0 \
       -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
@@ -131,7 +131,7 @@ target_compile_features(charlswasm_decode PUBLIC cxx_std_17)
 if (CMAKE_BUILD_TYPE STREQUAL Debug)
   SET(linkFlags "-g3")
 else() # Either MinSizeRel, RelWithDebInfo or Release, all which run with optimizations enabled.
-  SET(linkFlags "-O3")
+  SET(linkFlags "-O3 -flto")
 endif()
 
 set(CMAKE_CXX_FLAGS_RELEASE "-Os")
@@ -144,11 +144,11 @@ set_target_properties(
       -s MODULARIZE=1 \
       -s EXPORT_NAME=CharLSWASM \
       -s DISABLE_EXCEPTION_CATCHING=1 \
-      -s ASSERTIONS=1 \
+      -s ASSERTIONS=0 \
       -s NO_EXIT_RUNTIME=1 \
-      -s MALLOC=mimalloc \
+      -s MALLOC=dlmalloc \
       -s ALLOW_MEMORY_GROWTH=1 \
-      -s INITIAL_MEMORY=16MB \
+      -s INITIAL_MEMORY=20MB \
       -s FILESYSTEM=0 \
       -s ERROR_ON_UNDEFINED_SYMBOLS=0 \
       -s EXPORTED_FUNCTIONS=[] \
